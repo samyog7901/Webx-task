@@ -1,12 +1,12 @@
-import "reflect-metadata";
-import { DataSource } from "typeorm";
-import dotenv from "dotenv";
-import { User } from "./entities/User";
-import { Auth } from "./entities/Auth";
-import { PasswordReset } from "./entities/PasswordReset";
+import "reflect-metadata"
+import { DataSource } from "typeorm"
+import dotenv from "dotenv"
+import { User } from "./entities/User"
+import { Auth } from "./entities/Auth"
+import { PasswordReset } from "./entities/PasswordReset"
 
 
-dotenv.config();
+dotenv.config()
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -16,6 +16,6 @@ export const AppDataSource = new DataSource({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   entities: [User, Auth, PasswordReset],
-  synchronize: true, // auto-create tables in dev
+  synchronize: true, // it auto-creates tables in development env
   logging: false,
-});
+})

@@ -1,27 +1,26 @@
-import express from "express";
-import cors from "cors";
-import cookieParser from "cookie-parser";
+import express, { Request, Response } from "express"
+import cors from "cors"
+import cookieParser from "cookie-parser"
 
-const app = express();
+const app = express()
 
-// Enable JSON parsing
-app.use(express.json());
+// it enables JSON parsing
+app.use(express.json())
 
-// Enable cookie parsing
-app.use(cookieParser());
+// it enables cookie parsing
+app.use(cookieParser())
 
 // CORS setup
-// Frontend (localhost:5173 for example) must send credentials
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: true,
     credentials: true,
   })
 );
 
-// You can register routes later
-// Example:
-// import userRoutes from "../controller/user/user.routes";
-// app.use("/api/user", userRoutes);
 
-export default app;
+app.get("/test",(req:Request,res:Response)=>{
+  res.json({message:"Hare Krishna!"})
+})
+  
+export default app

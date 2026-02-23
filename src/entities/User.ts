@@ -5,8 +5,7 @@ import {
     OneToOne,
     OneToMany,
     CreateDateColumn,
-    UpdateDateColumn,
-    JoinColumn,
+    UpdateDateColumn
   } from "typeorm";
   import { Auth } from "./Auth";
   import { PasswordReset } from "./PasswordReset";

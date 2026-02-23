@@ -1,24 +1,23 @@
-import "reflect-metadata";
-import express from "express";
-import dotenv from "dotenv";
-import { AppDataSource } from "./data-source";
-import app from "./configs/app";
-// import app from "./configs/app";
+import "reflect-metadata"
+import dotenv from "dotenv"
+import { AppDataSource } from "./data-source"
+import app from "./configs/app"
 
-dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+dotenv.config()
 
-// Initialize DB
+const PORT = process.env.PORT || 5001
+
+// DB Initialization
 AppDataSource.initialize()
   .then(() => {
-    console.log("Database connected successfully ✅");
+    console.log("Database connected successfully ✅")
 
-    // Start Express server
+    // Starting express server 
     app.listen(PORT, () => {
-      console.log(`Server running on http://localhost:${PORT}`);
+      console.log(`Server running on http://localhost:${PORT}`)
     });
   })
   .catch((err) => {
-    console.error("Error during Data Source initialization:", err);
+    console.error("Error during Data Source initialization:", err)
   });
