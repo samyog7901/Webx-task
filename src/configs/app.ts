@@ -1,6 +1,8 @@
 import express, { Request, Response } from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
+import authRoutes from "../routes/auth.route"
+import resetPw from "../routes/password-reset.route"
 
 const app = express()
 
@@ -10,7 +12,7 @@ app.use(express.json())
 // it enables cookie parsing
 app.use(cookieParser())
 
-// CORS setup
+// setting up CORS 
 app.use(
   cors({
     origin: true,
@@ -18,6 +20,8 @@ app.use(
   })
 );
 
+app.use("/api/auth",authRoutes)
+app.use("",resetPw)
 
 app.get("/test",(req:Request,res:Response)=>{
   res.json({message:"Hare Krishna!"})

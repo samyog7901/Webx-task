@@ -5,22 +5,22 @@ import {
     ManyToOne,
     CreateDateColumn,
   } from "typeorm";
-  import { User } from "./User";
+  import { User } from "./User"
   
   @Entity()
   export class PasswordReset {
     @PrimaryGeneratedColumn("uuid")
-    id!: string;
+    id!: string
   
     @Column()
-    tokenHash!: string;
+    tokenHash!: string
   
     @Column()
-    expiresAt!: Date;
+    expiresAt!: Date
   
     @ManyToOne(() => User, (user) => user.passwordResets)
-    user!: User;
+    user!: User
   
     @CreateDateColumn()
-    createdAt!: Date;
+    createdAt!: Date
   }

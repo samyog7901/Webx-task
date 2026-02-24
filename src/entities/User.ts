@@ -6,36 +6,37 @@ import {
     OneToMany,
     CreateDateColumn,
     UpdateDateColumn
-  } from "typeorm";
-  import { Auth } from "./Auth";
-  import { PasswordReset } from "./PasswordReset";
+  } from "typeorm"
+
+  import { Auth } from "./Auth"
+  import { PasswordReset } from "./PasswordReset"
   
   @Entity()
   export class User {
     @PrimaryGeneratedColumn("uuid")
-    id!: string;
+    id!: string
   
     @Column()
-    name!: string;
+    name!: string
   
     @Column({ unique: true })
-    email!: string;
+    email!: string
   
     @Column()
-    password!: string;
+    password!: string
   
     @Column({ default: "user" })
-    role!: string;
+    role!: string
   
     @OneToOne(() => Auth, (auth) => auth.user)
-    auth!: Auth;
+    auth!: Auth
   
     @OneToMany(() => PasswordReset, (reset) => reset.user)
-    passwordResets!: PasswordReset[];
+    passwordResets!: PasswordReset[]
   
     @CreateDateColumn()
-    createdAt!: Date;
+    createdAt!: Date
   
     @UpdateDateColumn()
-    updatedAt!: Date;
+    updatedAt!: Date
   }

@@ -4,18 +4,18 @@ import {
     Column,
     OneToOne,
     JoinColumn,
-  } from "typeorm";
+  } from "typeorm"
   import { User } from "./User";
   
   @Entity()
   export class Auth {
     @PrimaryGeneratedColumn("uuid")
-    id!: string;
+    id!: string
   
     @Column({ nullable: true })
-    refreshToken!: string;
+    refreshToken!: string
   
     @OneToOne(() => User, (user) => user.auth)
     @JoinColumn()
-    user!: User;
+    user!: User
   }
