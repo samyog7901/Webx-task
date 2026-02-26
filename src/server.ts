@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5001
 // DB Initialization
 AppDataSource.initialize()
   .then(() => {
-    console.log("Database connected successfully ✅")
+    console.log("Database connected successfully !")
 
     // Starting express server 
     app.listen(PORT, () => {

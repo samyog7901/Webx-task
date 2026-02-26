@@ -29,7 +29,7 @@ export const signinService = async (input: SigninInput) => {
   }
 
 
-
+//generating tokens
   const accessToken = generateAccessToken({ userId: user.id, role: user.role })
 
   const refreshToken = generateRefreshToken({userId: user.id, role: user.role })

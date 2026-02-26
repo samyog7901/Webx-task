@@ -31,7 +31,7 @@ export const requestPasswordReset = async (email: string) => {
   const reset = resetRepo.create({
     tokenHash,
     expiresAt,
-    user,
+    user
   })
 
   await resetRepo.save(reset);
